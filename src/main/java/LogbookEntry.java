@@ -1,3 +1,4 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -8,7 +9,6 @@ public class LogbookEntry {
     public static void main(String[] args) {
         ApplicationProperties properties = new ApplicationProperties();
 
-        String chromeDriver = "webdriver.chrome.driver";
         String onlineMISLoginUrl = "onlinemis.website.login";
         String loginEmail = "onlinemis.login.email";
         String loginPassword = "onlinemis.login.password";
@@ -17,7 +17,7 @@ public class LogbookEntry {
         String activityDetail = "onlinemis.logbook.activitydetail";
         String photoPath = "onlinemis.logbook.photoname";
 
-        System.setProperty(chromeDriver, properties.getProperty(chromeDriver));
+        WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
 
